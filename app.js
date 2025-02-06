@@ -17,7 +17,7 @@ function adicionarAmigo() {
         alert("O campo não pode ser vazio ou menor que 3 dígitos e não pode conter números.")
 
     } else {
-        listaAmigos.push(campoAdicionarNome.value)
+        listaAmigos.push(campoAdicionarNome.value.toLowerCase())
         //console.log(listaAmigos)
         campoListaAmigos.innerHTML = listaAmigos.map(amigo => `<li>${amigo}</li>`).join('') 
     }
