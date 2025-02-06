@@ -2,32 +2,36 @@
 const campoAdicionarNome = document.getElementById('amigo');
 const campoListaAmigos = document.getElementById('listaAmigos')
 let listaAmigos = [];
-listaAmigosSorteados = [];
+let listaAmigosSorteados = [];
 
 function adicionarAmigo() {
-    if (campoAdicionarNome.value == 0 || campoAdicionarNome.value < 3) {
+    if (campoAdicionarNome.length < 3 || campoAdicionarNome.value == 0) {
         campoAdicionarNome.setAttribute('placeholder', 'O campo não pode ser vazio ou menor que 3 dígitos.');
         campoAdicionarNome.classList.add('add-name')
     } else {
         listaAmigos.push(campoAdicionarNome.value)
         //console.log(listaAmigos)
-        campoListaAmigos.innerHTML = listaAmigos
+        campoListaAmigos.innerHTML = listaAmigos 
 
     }
 }
 
 function sortearAmigo() {
-    const quantidadeNomes = 0;
+    let quantidadeNomes = 0;
     let listaAmigosSorteados = []
 
-    if (listaAmigosSorteados.length == listaAmigos.length) {
+    if (quantidadeNomes == listaAmigos.length) {
         alert('Todos os amigos foram sorteados! Adicione novos nomes.')
         listaAmigos = []
     } else {
-
+        
+        console.log(gerarNomeAleatorio(listaAmigos))
+        quantidadeNomes ++;
     }
 }
 
-const gerarNomeAleatorio = (aleatoria) => {
+function gerarNomeAleatorio(nomeAleatorio) {
+    let index = Math.floor(Math.random() * listaAmigos.length)
     
+    return nomeAleatorio[index];
 }
