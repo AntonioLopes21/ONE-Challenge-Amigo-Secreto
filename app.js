@@ -9,11 +9,11 @@ let listaAmigosSorteados = [];
 
 function adicionarAmigo() {
     let campoDoNome = campoAdicionarNome.value;
+    campoAdicionarNome.classList.add('add-name')
 
-    if (campoDoNome.length < 3 || campoDoNome.length == 0) {
-        //alert("O campo não pode ter menos que 3 dígitos")
-        campoAdicionarNome.classList.add('add-name')
+    if (campoDoNome.length < 3 || campoDoNome.length == 0 || /\d/.test(campoDoNome)) {
         campoAdicionarNome.setAttribute('placeholder', 'O campo não pode ser vazio ou menor que 3 dígitos.');
+        alert("O campo não pode ser vazio ou menor que 3 dígitos e não pode conter números.")
 
     } else {
         listaAmigos.push(campoAdicionarNome.value)
